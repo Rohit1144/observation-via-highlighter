@@ -1,0 +1,7 @@
+   .env
+   .env.local
+   agentcore/.env.local
+   .npm-global/
+   __pycache__/
+   .venv/
+   node_modules/
