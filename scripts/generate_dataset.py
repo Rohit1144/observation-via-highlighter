@@ -339,6 +339,13 @@ def main() -> None:
     sites, observations = generate()
     OUT_DIR.mkdir(exist_ok=True)
     (OUT_DIR / "sites.json").write_text(json.dumps(sites, indent=2) + "\n")
+    metadata = {
+        "data_as_of": NOW.isoformat().replace("+00:00", "Z"),
+        "data_start": START.isoformat().replace("+00:00", "Z"),
+        "seed": SEED,
+        "observation_count": len(observations),
+    }
+    (OUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n")
     with open(OUT_DIR / "observations.jsonl", "w") as f:
         for o in observations:
             f.write(json.dumps(o, separators=(",", ":")) + "\n")

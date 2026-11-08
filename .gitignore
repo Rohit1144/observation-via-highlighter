@@ -4,7 +4,11 @@
 agentcore/.env.local
 *.pem
 
+# Runtime state written by the mock API (flags from write-back actions)
+data/runtime/
+
 # Python
+.pytest_cache/
 __pycache__/
 .venv/
 
