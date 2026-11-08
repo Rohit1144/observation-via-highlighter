@@ -1,0 +1,358 @@
+[
+  {
+    "id": "S01",
+    "name": "Northgate Substation",
+    "type": "substation",
+    "region": "North",
+    "lat": -36.8105,
+    "lon": 174.742,
+    "onboarded_at": "2026-05-01",
+    "sources": [
+      {
+        "id": "S01-CCTV-01",
+        "type": "cctv"
+      },
+      {
+        "id": "S01-CCTV-02",
+        "type": "cctv"
+      },
+      {
+        "id": "S01-CCTV-03",
+        "type": "cctv"
+      },
+      {
+        "id": "S01-FIX-01",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S01-FIX-02",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S01-DRONE-01",
+        "type": "drone"
+      }
+    ]
+  },
+  {
+    "id": "S02",
+    "name": "Riverside Solar Farm",
+    "type": "solar_farm",
+    "region": "West",
+    "lat": -37.787,
+    "lon": 175.2793,
+    "onboarded_at": "2026-05-01",
+    "sources": [
+      {
+        "id": "S02-CCTV-01",
+        "type": "cctv"
+      },
+      {
+        "id": "S02-CCTV-02",
+        "type": "cctv"
+      },
+      {
+        "id": "S02-FIX-01",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S02-FIX-02",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S02-DRONE-01",
+        "type": "drone"
+      }
+    ]
+  },
+  {
+    "id": "S03",
+    "name": "Eastport Container Terminal",
+    "type": "port",
+    "region": "East",
+    "lat": -36.8433,
+    "lon": 174.785,
+    "onboarded_at": "2026-05-01",
+    "sources": [
+      {
+        "id": "S03-CCTV-01",
+        "type": "cctv"
+      },
+      {
+        "id": "S03-CCTV-02",
+        "type": "cctv"
+      },
+      {
+        "id": "S03-CCTV-03",
+        "type": "cctv"
+      },
+      {
+        "id": "S03-CCTV-04",
+        "type": "cctv"
+      },
+      {
+        "id": "S03-CCTV-05",
+        "type": "cctv"
+      },
+      {
+        "id": "S03-CCTV-06",
+        "type": "cctv"
+      },
+      {
+        "id": "S03-FIX-01",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S03-FIX-02",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S03-FIX-03",
+        "type": "fixed_camera"
+      }
+    ]
+  },
+  {
+    "id": "S04",
+    "name": "Hillcrest Rail Yard",
+    "type": "rail_yard",
+    "region": "South",
+    "lat": -37.6878,
+    "lon": 176.1651,
+    "onboarded_at": "2026-05-01",
+    "sources": [
+      {
+        "id": "S04-CCTV-01",
+        "type": "cctv"
+      },
+      {
+        "id": "S04-CCTV-02",
+        "type": "cctv"
+      },
+      {
+        "id": "S04-CCTV-03",
+        "type": "cctv"
+      },
+      {
+        "id": "S04-FIX-01",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S04-DRONE-01",
+        "type": "drone"
+      }
+    ]
+  },
+  {
+    "id": "S05",
+    "name": "Westfield Construction Site",
+    "type": "construction",
+    "region": "West",
+    "lat": -36.8775,
+    "lon": 174.636,
+    "onboarded_at": "2026-05-01",
+    "sources": [
+      {
+        "id": "S05-CCTV-01",
+        "type": "cctv"
+      },
+      {
+        "id": "S05-CCTV-02",
+        "type": "cctv"
+      },
+      {
+        "id": "S05-FIX-01",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S05-FIX-02",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S05-DRONE-01",
+        "type": "drone"
+      }
+    ]
+  },
+  {
+    "id": "S06",
+    "name": "Lakeside Water Treatment",
+    "type": "water_treatment",
+    "region": "Central",
+    "lat": -38.6857,
+    "lon": 176.0702,
+    "onboarded_at": "2026-05-01",
+    "sources": [
+      {
+        "id": "S06-CCTV-01",
+        "type": "cctv"
+      },
+      {
+        "id": "S06-CCTV-02",
+        "type": "cctv"
+      },
+      {
+        "id": "S06-FIX-01",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S06-FIX-02",
+        "type": "fixed_camera"
+      }
+    ]
+  },
+  {
+    "id": "S07",
+    "name": "Kingsway Warehouse",
+    "type": "warehouse",
+    "region": "North",
+    "lat": -36.902,
+    "lon": 174.8,
+    "onboarded_at": "2026-05-01",
+    "sources": [
+      {
+        "id": "S07-CCTV-01",
+        "type": "cctv"
+      },
+      {
+        "id": "S07-CCTV-02",
+        "type": "cctv"
+      },
+      {
+        "id": "S07-CCTV-03",
+        "type": "cctv"
+      },
+      {
+        "id": "S07-CCTV-04",
+        "type": "cctv"
+      }
+    ]
+  },
+  {
+    "id": "S08",
+    "name": "Granite Ridge Quarry",
+    "type": "quarry",
+    "region": "South",
+    "lat": -39.4928,
+    "lon": 176.912,
+    "onboarded_at": "2026-05-01",
+    "sources": [
+      {
+        "id": "S08-CCTV-01",
+        "type": "cctv"
+      },
+      {
+        "id": "S08-CCTV-02",
+        "type": "cctv"
+      },
+      {
+        "id": "S08-FIX-01",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S08-FIX-02",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S08-DRONE-01",
+        "type": "drone"
+      }
+    ]
+  },
+  {
+    "id": "S09",
+    "name": "Harbour Fuel Depot",
+    "type": "fuel_depot",
+    "region": "East",
+    "lat": -36.84,
+    "lon": 174.77,
+    "onboarded_at": "2026-05-01",
+    "sources": [
+      {
+        "id": "S09-CCTV-01",
+        "type": "cctv"
+      },
+      {
+        "id": "S09-CCTV-02",
+        "type": "cctv"
+      },
+      {
+        "id": "S09-CCTV-03",
+        "type": "cctv"
+      },
+      {
+        "id": "S09-FIX-01",
+        "type": "fixed_camera"
+      },
+      {
+        "id": "S09-FIX-02",
+        "type": "fixed_camera"
+      }
+    ]
+  },
+  {
+    "id": "S10",
+    "name": "Meadow Hill Wind Farm",
+    "type": "wind_farm",
+    "region": "Central",
+    "lat": -40.3523,
+    "lon": 175.6082,
+    "onboarded_at": "2026-05-01",
+    "sources": [
+      {
+        "id": "S10-DRONE-01",
+        "type": "drone"
+      }
+    ]
+  },
+  {
+    "id": "S11",
+    "name": "Central Logistics Depot",
+    "type": "depot",
+    "region": "Central",
+    "lat": -37.7,
+    "lon": 176.1,
+    "onboarded_at": "2026-05-01",
+    "sources": [
+      {
+        "id": "S11-CCTV-01",
+        "type": "cctv"
+      },
+      {
+        "id": "S11-CCTV-02",
+        "type": "cctv"
+      },
+      {
+        "id": "S11-CCTV-03",
+        "type": "cctv"
+      },
+      {
+        "id": "S11-FIX-01",
+        "type": "fixed_camera"
+      }
+    ]
+  },
+  {
+    "id": "S12",
+    "name": "Southbank Pumping Station",
+    "type": "pumping_station",
+    "region": "South",
+    "lat": -41.2865,
+    "lon": 174.7762,
+    "onboarded_at": "2026-09-01",
+    "sources": [
+      {
+        "id": "S12-CCTV-01",
+        "type": "cctv"
+      },
+      {
+        "id": "S12-CCTV-02",
+        "type": "cctv"
+      },
+      {
+        "id": "S12-FIX-01",
+        "type": "fixed_camera"
+      }
+    ]
+  }
+]
