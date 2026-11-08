@@ -1,10 +1,8 @@
-"""Mock Highlighter API.
+"""Mock Highlighter backend.
 
-`HighlighterAPI` is the interface the rest of the project depends on (the MCP server
-wraps it; nothing else touches the data files). `MockHighlighterAPI` implements it
-over the generated JSON files in data/. Making this real means writing a
-`HttpHighlighterAPI` with the same methods that calls Highlighter's API instead;
-the MCP server and agent don't change.
+`MockHighlighterAPI` implements the `HighlighterAPI` interface (interface.py) over
+the generated JSON files in data/. It's the only mock part of this package: a real
+backend would be a sibling class with the same methods.
 
 Design choices:
 - Filtering only, no aggregation. Counting, trends and charts are the agent's job
@@ -22,40 +20,13 @@ import json
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Protocol
+from typing import Any
 
 from .schema import (
     ALL_FIELDS, CATEGORIES, DEFAULT_DATA_DIR, DEFAULT_FIELDS, DEFAULT_FLAGS_PATH,
     DEFAULT_LIMIT, FLAG_PRIORITIES, MAX_LIMIT, MAX_REASON_LEN, SEVERITIES, STATUSES,
 )
 from .validation import HighlighterAPIError, check_allowed, parse_timestamp
-
-
-class HighlighterAPI(Protocol):
-    """What any Highlighter backend (mock or real) must provide."""
-
-    def list_sites(self) -> dict[str, Any]: ...
-
-    def get_site(self, site_id: str) -> dict[str, Any]: ...
-
-    def query_observations(
-        self,
-        site_ids: list[str] | None = None,
-        categories: list[str] | None = None,
-        severities: list[str] | None = None,
-        statuses: list[str] | None = None,
-        types: list[str] | None = None,
-        observed_from: str | None = None,
-        observed_to: str | None = None,
-        min_confidence: float | None = None,
-        fields: list[str] | None = None,
-        limit: int = DEFAULT_LIMIT,
-        offset: int = 0,
-    ) -> dict[str, Any]: ...
-
-    def flag_site(self, site_id: str, reason: str, priority: str = "medium") -> dict[str, Any]: ...
-
-    def list_flags(self, site_id: str | None = None) -> dict[str, Any]: ...
 
 
 class MockHighlighterAPI:

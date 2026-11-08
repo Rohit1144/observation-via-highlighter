@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from highlighter_mock import HighlighterAPIError, MockHighlighterAPI
+from highlighter import HighlighterAPIError, MockHighlighterAPI
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 RAW = [json.loads(line) for line in (DATA / "observations.jsonl").read_text().splitlines()]
