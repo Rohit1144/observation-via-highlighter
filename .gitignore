@@ -1,7 +1,18 @@
-   .env
-   .env.local
-   agentcore/.env.local
-   .npm-global/
-   __pycache__/
-   .venv/
-   node_modules/
+# Secrets / local config: never commit credentials
+.env
+.env.*
+agentcore/.env.local
+*.pem
+
+# Python
+__pycache__/
+.venv/
+
+# Node
+.npm-global/
+node_modules/
+
+# Nix
+result
+result-*
+.direnv/
