@@ -1,0 +1,14 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PassHarnessRoleToAgentCoreOnly",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::<ACCOUNT_ID>:role/role_for_agentcore",
+      "Condition": {
+        "StringEquals": { "iam:PassedToService": "bedrock-agentcore.amazonaws.com" }
+      }
+    }
+  ]
+}
