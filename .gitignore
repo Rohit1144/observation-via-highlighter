@@ -4,6 +4,9 @@
 agentcore/.env.local
 *.pem
 
+# IAM policies with the real account id filled in (templates in infra/iam/ are committed)
+infra/iam/rendered/
+
 # Runtime state written by the mock API (flags from write-back actions)
 data/runtime/
 
