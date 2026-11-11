@@ -4,6 +4,9 @@
 agentcore/.env.local
 *.pem
 
+# Local state with account-specific ARNs (e.g. .harness.local.json from create_harness)
+*.local.json
+
 # IAM policies with the real account id filled in (templates in infra/iam/ are committed)
 infra/iam/rendered/
 
