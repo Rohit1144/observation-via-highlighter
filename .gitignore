@@ -10,6 +10,9 @@ agentcore/.env.local
 # IAM policies with the real account id filled in (templates in infra/iam/ are committed)
 infra/iam/rendered/
 
+# Agent run evidence (question, tool calls, code, answers, raw event stream)
+runs/
+
 # Runtime state written by the mock API (flags from write-back actions)
 data/runtime/
 

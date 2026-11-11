@@ -10,8 +10,8 @@ Tools given to the harness:
   hands it to our relay, which runs it against the local MCP server. The definitions
   are read from the MCP server itself, so the harness and server can't drift apart.
 
-`allowedTools` lists exactly those tools, which leaves out the built-in `shell` and
-`file_operations` (they're allowed by default).
+`allowedTools` lists exactly those tools (as "@name"), which leaves out the built-in
+`shell` and `file_operations` (they're allowed by default).
 """
 
 from __future__ import annotations
@@ -29,6 +29,8 @@ from highlighter.mcp_server import build_server
 from . import config
 
 SYSTEM_PROMPT_FILE = config.REPO_ROOT / "agent" / "system_prompt.md"
+# Fields that UpdateHarness expects as {"optionalValue": ...} (checked against botocore).
+UPDATE_WRAPPED_FIELDS = {"memory", "authorizerConfiguration", "environmentArtifact"}
 
 
 async def _mcp_tools() -> list:
@@ -64,8 +66,15 @@ def harness_config() -> dict:
         }},
         "systemPrompt": [{"text": SYSTEM_PROMPT_FILE.read_text()}],
         "tools": tools,
-        "allowedTools": [t["name"] for t in tools],
+        # A bare name only matches *built-in* tools (shell, file_operations). Tools we
+        # declare (inline functions, code interpreter) need the "@" prefix; bare names
+        # silently match nothing and the model gets no tools at all.
+        "allowedTools": [f"@{t['name']}" for t in tools],
         "truncation": {"strategy": "sliding_window"},
+        # Off: harness memory persists conversations *across* sessions, and every
+        # question here is its own session. Without this, AgentCore creates a managed
+        # memory resource by default, which the role has no permissions for.
+        "memory": {"disabled": {}},
         "maxIterations": config.MAX_ITERATIONS,
         "maxTokens": config.MAX_TOKENS,
         "timeoutSeconds": config.TIMEOUT_SECONDS,
@@ -126,11 +135,15 @@ def main() -> None:
     client = boto3.client("bedrock-agentcore-control", region_name=config.REGION)
     existing = find_existing(client)
     if existing:
-        print(f"\nUpdating harness {existing['harnessId']} ...")
-        client.update_harness(harnessId=existing["harnessId"], executionRoleArn=role_arn, **cfg)
+        print(f"\nUpdating harness {existing['harnessId']} ...", flush=True)
+        # UpdateHarness wraps these fields as {"optionalValue": ...} (so they can also be
+        # cleared); CreateHarness takes them bare.
+        update_cfg = {k: ({"optionalValue": v} if k in UPDATE_WRAPPED_FIELDS else v)
+                      for k, v in cfg.items()}
+        client.update_harness(harnessId=existing["harnessId"], executionRoleArn=role_arn, **update_cfg)
         harness_id = existing["harnessId"]
     else:
-        print(f"\nCreating harness {config.HARNESS_NAME} ...")
+        print(f"\nCreating harness {config.HARNESS_NAME} ...", flush=True)
         h = client.create_harness(harnessName=config.HARNESS_NAME, executionRoleArn=role_arn, **cfg)
         harness_id = h["harness"]["harnessId"]
 
