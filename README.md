@@ -191,7 +191,7 @@ are anchored to the data.
 
 ## Access and secrets
 
-- No credentials in the repo: AWS keys stay in `~/.aws`; the role ARN comes from an
+- No credentials in the repo; the role ARN comes from an
   environment variable; files containing the account id (`.harness.local.json`,
   `infra/iam/rendered/`) are gitignored.
 - The harness only sees its six tools (`allowedTools`); the built-in `shell` and
