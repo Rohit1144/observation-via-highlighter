@@ -32,8 +32,9 @@ HARNESS_STATE_FILE = REPO_ROOT / ".harness.local.json"
 # Sonnet 4.6 via the US cross-region inference profile. The execution role is only
 # allowed to call this profile, so changing it also means updating the IAM policy.
 MODEL_ID = "us.anthropic.claude-sonnet-4-6"
-# Max output tokens per model call.
-MODEL_MAX_TOKENS = 4096
+# Max output tokens per model call. Raised from 4096: copying ~150-200 rows into a
+# single Code Interpreter call cut the response off mid-way.
+MODEL_MAX_TOKENS = 16384
 # 0 = as repeatable as possible, which matters when we compare answers against
 # our own calculations across runs.
 TEMPERATURE = 0.0
